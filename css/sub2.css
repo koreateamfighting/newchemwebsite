@@ -30,8 +30,9 @@ section{margin: 0;width: auto;height: 1800px;padding-top: 85px;}
 .tabnav-sub>li>a:hover,.tabnav-sub>li>a.active{background:#fff;color:#222;}
 .tabcontent-sub{padding: 20px;height:244px;border-top:none;}
 
+
 #tab02>.tab-sub>.tabnav-sub{width: 600px;}
-#tab03>.tab-sub>.tabnav-sub{width: 800px;}
+#tab03>.tab-sub>.tabnav-sub{font-size:800;width: 1200px;white-space:nowrap;}
 
 .cont01-img{width: 1300px;height: 1100px;margin: 30px auto 0;}
 .cont01-img>ul{width: 1300px;height: 1100px;}
