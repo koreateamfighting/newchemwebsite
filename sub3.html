@@ -37,9 +37,36 @@
             $("#header-wrap-load").load("header-wrap.html .header-wrap", function() {
                 console.log("Content loaded successfully.");
             });
+            $("#footer-wrap-load").load("footer-wrap.html .footer-wrap", function() {
+                console.log("Content loaded successfully.");
+            });
                  
         });
   </script>
+      <script src=" https://smtpjs.com/v3/smtp.js"></script> <!-- 이메일주소로 문의 보내기 스크립트 작동됨-->
+      <script>
+          function Send(){
+              console.log("function call");
+  
+              Email.send({
+                  Host : "smtp.elasticemail.com",
+                  Username : "wwf57755@gmail.com", //이메일을 변경한다면, 수정해야하는 부분
+                  Password : "ehdgns12!", //이메일을 변경한다면, 수정해야하는 부분
+                  To : 'wwf57755@gmail.com', //이메일을 변경한다면, 수정해야하는 부분
+                  From : "wwf57755@gmail.com", //이메일을 변경한다면, 수정해야하는 부분
+                  Subject : "NewChem 상담 신청",
+                  Body : "업체명: " + document.getElementById("company").value + "<br> 성명: " + document.getElementById("name").value + "<br> 전화번호: " + document.getElementById("number").value + "<br> 이메일: " + document.getElementById("email").value + "<br> 지역: " + document.getElementById("address").value + "<br> 제목: " + document.getElementById("title").value + "<br> 내용: " + document.getElementById("note").value
+              }).then(
+              message => alert(message)
+              );
+          }
+          function checkIt() {
+              const check_elem = document.querySelector("#check");
+              if (!check_elem.checked) {
+              alert("개인정보 수집 및 이용목적 동의 여부를 확인해주세요.");
+              }
+          }
+      </script>
 </head>
 <body>
     <div id="wrap">
@@ -126,57 +153,10 @@
                 </div>
             </div>
         </section>
-        <footer>
-            <div class="footer-wrap">
-                <div class="footer-top">
-                    <p>(주)NewChem 표기</p>
-                </div>
-                <div class="footer-bottom">
-                    <div class="left">
-                        <ul>
-                            <li><p>대전사무소 | (34816) 대전광역시 중구 목동로 42 302호(목동복합빌딩)</p></li>
-                            <li><p>경기사무소 | (18021) 경기 평택시 도시지원로 121 고덕지식공작소아이타워 501호</p></li>
-                        </ul>
-                        <div class="contact-info">
-                            <ul>
-                                <li><img src="./img/icon-call.png" alt="전화"><p>070-8098-7424</p></li>
-                                <li><img src="./img/icon-fax.png" alt="팩스"><p>042-367-7427</p></li>
-                                <li><img src="./img/icon-mail.png" alt="이메일"><p>cmkim@new-chem.co.kr</p></li>
-                            </ul>
-                        </div>
-                        <p>COPYRIGHT ⓒ NewChem (뉴켐) All rights reserved</p>
-                    </div>
-                    <div class="right">
-                        <div class="logo"><a href="./index.html"><img src="./img/logo-white.png" alt="NewChem"></a></div>
-                        <a href="./sub3.html"><p>Contact Us</p><img src="./img/arrow-right-white.png" alt="화살표"></a>
-                    </div>
-                </div>
-            </div>
+        <footer>            
+            <div id="footer-wrap-load"></div>
         </footer>
     </div>
-    <script src=" https://smtpjs.com/v3/smtp.js"></script> <!-- 이메일주소로 문의 보내기 스크립트 작동됨-->
-    <script>
-        function Send(){
-            console.log("function call");
 
-            Email.send({
-                Host : "smtp.elasticemail.com",
-                Username : "cmkim@new-chem.co.kr", //이메일을 변경한다면, 수정해야하는 부분
-                Password : "ECF885AC49C800013571612A618F409CB187", //이메일을 변경한다면, 수정해야하는 부분
-                To : 'cmkim@new-chem.co.kr', //이메일을 변경한다면, 수정해야하는 부분
-                From : "cmkim@new-chem.co.kr", //이메일을 변경한다면, 수정해야하는 부분
-                Subject : "NewChem 상담 신청",
-                Body : "업체명: " + document.getElementById("company").value + "<br> 성명: " + document.getElementById("name").value + "<br> 전화번호: " + document.getElementById("number").value + "<br> 이메일: " + document.getElementById("email").value + "<br> 지역: " + document.getElementById("address").value + "<br> 제목: " + document.getElementById("title").value + "<br> 내용: " + document.getElementById("note").value
-            }).then(
-            message => alert(message)
-            );
-        }
-        function checkIt() {
-            const check_elem = document.querySelector("#check");
-            if (!check_elem.checked) {
-            alert("개인정보 수집 및 이용목적 동의 여부를 확인해주세요.");
-            }
-        }
-    </script>
 </body>
 </html>

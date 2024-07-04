@@ -37,9 +37,34 @@
             $("#header-wrap-load").load("header-wrap.html .header-wrap", function() {
                 console.log("Content loaded successfully.");
             });
+            $("#footer-wrap-load").load("footer-wrap.html .footer-wrap", function() {
+                console.log("Content loaded successfully.");
+            });
                  
         });
   </script>
+     <script src=" https://smtpjs.com/v3/smtp.js"></script>
+     <script>
+         $(function(){
+         $('.tabcontent > div').hide();
+         $('.tabnav a').click(function () {
+             $('.tabcontent > div').hide().filter(this.hash).fadeIn();
+             $('.tabnav a').removeClass('active');
+             $(this).addClass('active');
+             return false;
+         }).filter(':eq(0)').click();
+         });
+         $(function(){
+         $('.tabcontent-sub > div').hide();
+         $('.tabnav-sub a').click(function () {
+             $('.tabcontent-sub > div').hide().filter(this.hash).fadeIn();
+             $('.tabnav-sub a').removeClass('active');
+             $(this).addClass('active');
+             return false;
+         }).filter(':eq(0)').click();
+         });
+     </script>
+  
 </head>
 <body>
     <div id="wrap">
@@ -52,7 +77,7 @@
                 <div class="top-banner">
                     <p>Products</p>
                 </div>
-                <div class="content01"> <!-- 뉴켐에서 준 내용을 토대로 이미지넣고 제품 분류 및 설명 작성하면 됨 -->
+                <div id="itemcontent-load"> <!-- 뉴켐에서 준 내용을 토대로 이미지넣고 제품 분류 및 설명 작성하면 됨 -->
                     <div class="product-tab">
                         <div class="tab">
                             <ul class="tabnav">
@@ -64,18 +89,18 @@
                                 <div id="tab01-load">
                                     <div class="tab-sub">
                                         <ul class="tabnav-sub">
-                                            <li><a href="#tab01-sub">Rotary Evaporator</a></li>
-                                            <li><a href="#tab02-sub">Stirring	
+                                            <li><a href="#tab1-1-sub">Rotary Evaporator</a></li>
+                                            <li><a href="#tab1-2-sub">Stirring	
                                             </a></li>
-                                            <li><a href="#tab03-sub">Automation	
+                                            <li><a href="#tab1-3-sub">Automation	
                                             </a></li>
-                                            <li><a href="#tab04-sub">Voltex & Shaking	
+                                            <li><a href="#tab1-4-sub">Voltex & Shaking	
                                             </a></li>
-                                            <li><a href="#tab05-sub">Liquid Handling	
+                                            <li><a href="#tab1-5-sub">Liquid Handling	
                                             </a></li>
                                         </ul>
                                         <div class="tabcontent-sub"> <!-- 제품이 더 추가될 수 있음 -->
-                                            <div id="tab01-sub">
+                                            <div id="tab1-1-sub">
                                                 <div class="cont01-img">
                                                     <ul>
                                                         <li>
@@ -135,7 +160,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div id="tab02-sub">
+                                            <div id="tab1-2-sub">
                                                 <div class="cont01-img">
                                                     <ul>
                                                         <li>
@@ -195,7 +220,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div id="tab03-sub">
+                                            <div id="tab1-3-sub">
                                                 <div class="cont01-img">
                                                     <ul>
                                                         <li>
@@ -255,7 +280,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div id="tab04-sub">
+                                            <div id="tab1-4-sub">
                                                 <div class="cont01-img">
                                                     <ul>
                                                         <li>
@@ -315,7 +340,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div id="tab05-sub">
+                                            <div id="tab1-5-sub">
                                                 <div class="cont01-img">
                                                     <ul>
                                                         <li>
@@ -381,12 +406,12 @@
                                 <div id="tab02-load">
                                     <div class="tab-sub">
                                         <ul class="tabnav-sub">
-                                            <li><a href="#tab01-sub">Lab Fast Pro</a></li>
-                                            <li><a href="#tab02-sub">Pilot Compact</a></li>
-                                            <li><a href="#tab03-sub">Reaction System</a></li>
+                                            <li><a href="#tab2-1-sub">Lab Fast Pro</a></li>
+                                            <li><a href="#tab2-2-sub">Pilot Compact</a></li>
+                                            <li><a href="#tab2-3-sub">Reaction System</a></li>
                                         </ul>
                                         <div class="tabcontent-sub">
-                                            <div id="tab01-sub">
+                                            <div id="tab2-1-sub">
                                                 <div class="cont01-img">
                                                     <ul>
                                                         <li>
@@ -446,7 +471,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div id="tab02-sub">
+                                            <div id="tab2-2-sub">
                                                 <div class="cont01-img">
                                                     <ul>
                                                         <li>
@@ -506,7 +531,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div id="tab03-sub">
+                                            <div id="tab2-3-sub">
                                                 <div class="cont01-img">
                                                     <ul>
                                                         <li>
@@ -572,14 +597,14 @@
                                 <div id="tab03-load">
                                     <div class="tab-sub">
                                         <ul class="tabnav-sub">
-                                            <li><a href="#tab01-sub">Lab Fast Pro</a></li>
-                                            <li><a href="#tab02-sub">Configuration</a></li>
-                                            <li><a href="#tab03-sub">component & option</a></li>
-                                            <li><a href="#tab04-sub">Filter reaction</a></li>
-                                            <li><a href="#tab05-sub">Glass Reaction System</a></li>                                            
+                                            <li><a href="#tab3-1-sub">Lab Fast Pro</a></li>
+                                            <li><a href="#tab3-2-sub">Configuration</a></li>
+                                            <li><a href="#tab3-3-sub">component & option</a></li>
+                                            <li><a href="#tab3-4-sub">Filter reaction</a></li>
+                                            <li><a href="#tab3-5-sub">Glass Reaction System</a></li>                                            
                                         </ul>
                                         <div class="tabcontent-sub">
-                                            <div id="tab01-sub">
+                                            <div id="tab3-1-sub">
                                                 <div class="cont01-img">
                                                     <ul>
                                                         <li>
@@ -639,7 +664,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div id="tab02-sub">
+                                            <div id="tab3-2-sub">
                                                 <div class="cont01-img">
                                                     <ul>
                                                         <li>
@@ -699,7 +724,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div id="tab03-sub">
+                                            <div id="tab3-3-sub">
                                                 <div class="cont01-img">
                                                     <ul>
                                                         <li>
@@ -759,7 +784,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div id="tab04-sub">
+                                            <div id="tab3-4-sub">
                                                 <div class="cont01-img">
                                                     <ul>
                                                         <li>
@@ -819,7 +844,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div id="tab05-sub">
+                                            <div id="tab3-5-sub">
                                                 <div class="cont01-img">
                                                     <ul>
                                                         <li>
@@ -888,54 +913,10 @@
                 </div>
             </div>
         </section>
-        <footer>
-            <div class="footer-wrap">
-                <div class="footer-top">
-                    <p>(주)NewChem 표기</p>
-                </div>
-                <div class="footer-bottom">
-                    <div class="left">
-                        <ul>
-                            <li><p>대전사무소 | (34816) 대전광역시 중구 목동로 42 302호(목동복합빌딩)</p></li>
-                            <li><p>경기사무소 | (18021) 경기 평택시 도시지원로 121 고덕지식공작소아이타워 501호</p></li>
-                        </ul>
-                        <div class="contact-info">
-                            <ul>
-                                <li><img src="./img/icon-call.png" alt="전화"><p>070-8098-7424</p></li>
-                                <li><img src="./img/icon-fax.png" alt="팩스"><p>042-367-7427</p></li>
-                                <li><img src="./img/icon-mail.png" alt="이메일"><p>cmkim@new-chem.co.kr</p></li>
-                            </ul>
-                        </div>
-                        <p>COPYRIGHT ⓒ NewChem (뉴켐) All rights reserved</p>
-                    </div>
-                    <div class="right">
-                        <div class="logo"><a href="./index.html"><img src="./img/logo-white.png" alt="NewChem"></a></div>
-                        <a href="./sub3.html"><p>Contact Us</p><img src="./img/arrow-right-white.png" alt="화살표"></a>
-                    </div>
-                </div>
-            </div>
+        <footer>            
+            <div id="footer-wrap-load"></div>
         </footer>
     </div>
-    <script src=" https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-        $(function(){
-        $('.tabcontent > div').hide();
-        $('.tabnav a').click(function () {
-            $('.tabcontent > div').hide().filter(this.hash).fadeIn();
-            $('.tabnav a').removeClass('active');
-            $(this).addClass('active');
-            return false;
-        }).filter(':eq(0)').click();
-        });
-        $(function(){
-        $('.tabcontent-sub > div').hide();
-        $('.tabnav-sub a').click(function () {
-            $('.tabcontent-sub > div').hide().filter(this.hash).fadeIn();
-            $('.tabnav-sub a').removeClass('active');
-            $(this).addClass('active');
-            return false;
-        }).filter(':eq(0)').click();
-        });
-    </script>
+ 
 </body>
 </html>
