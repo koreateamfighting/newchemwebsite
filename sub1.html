@@ -35,7 +35,7 @@
 
     <script type="text/javascript">
         $(document).ready(function(){          
-            $("#tab03").load("test.html #testlink");
+            <!--$("#tab03").load("test.html #testlink");-->
             $("#header-wrap-load").load("header-wrap.html .header-wrap", function() {
                 console.log("Content loaded successfully.");
             });
@@ -66,6 +66,7 @@
           }).filter(':eq(0)').click();
           });
       </script>
+       
 </head>
 <body>
     <div id="wrap">
@@ -81,12 +82,12 @@
                     <div class="product-tab"> <!-- 뉴켐에 들어갈 내용 물어보고 진행하면됨 -->
                         <div class="tab">
                             <ul class="tabnav">
-                                <li id="#1"><a href="#tab01">기업 소개</a></li>
-                                <li id="#2"><a href="#tab02">기업 연혁</a></li>
-                                <li id="#3"><a href="#tab03">오시는 길</a></li>
+                                <li id="#1"><a href="sub1.html#intro">기업 소개</a></li>
+                                <li id="#2"><a href="sub1.html#history">기업 연혁</a></li>
+                                <li id="#3"><a href="sub1.html#location">오시는 길</a></li>
                             </ul>
-                            <div class="tabcontent">
-                                <div id="tab01">
+                            <div class="tabcontent" id="tabcontentid">
+                                <div class= "tabcontent_sub" id="intro">
                                     <a class="introduce1">
                                     뉴켐 홈페이지를 방문해 주신 여러분 반갑습니다.<br>
                                     뉴켐은 실험실에서 사용하는 기초장비부터 반응 및 자동화 시스템까지, 합성 실험에 필요한 모든 솔루션을 제공하는 회사입니다<br>                                    
@@ -94,8 +95,15 @@
                                     공급한 경험과 지식을 바탕으로 고객이 신뢰할 수 있는 회사가 되도록 노력하겠습니다.<br>                                    
                                     앞으로도 저희 뉴켐에 많은 성원을 부탁드립니다.</a><br><br><br>
                                     <a class="introduce2"><strong>(주) 뉴 켐 김 천 만 대표</strong></a></div>
-                                <div id="tab02"><a>test2</a></div>
-                                <div id="tab03"></div>
+                                <div class= "tabcontent_sub"  id="history"><a>기업 연혁을 기재하는 곳 입니다.</a></div>
+                                <div class= "tabcontent_sub"  id="location"><div>
+                                    <a href="./sub1-3.html">
+                                        <p>※ 주소 :  <strong>경기사무소</strong> (18021) 경기 평택시 도시지원로 121 고덕지식공작소아이타워 510호<br><br></p>
+                                    </a>
+                                </div>
+                                <ul class="map">
+                                    <li><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.6223690480622!2d127.01586977089258!3d37.02699966322705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b3d001631c641%3A0x2cd353d15ed8488b!2z6rOg642V7KeA7Iud6rO17J6R7IaM7JWE7J207YOA7JuMIOyngOyLneyCsOyXheyEvO2EsA!5e0!3m2!1sko!2skr!4v1717727526433!5m2!1sko!2skr" width="800" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></li>
+                                </ul></div>
                                                                 
                                 
                             </div>

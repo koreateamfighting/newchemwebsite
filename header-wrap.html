@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){          
+            $("#tabcontent-load").load("test.html #tabcontent");           
+                 
+        });
+  </script>
+
+<script src="company_script.js"></script>
 </head>
 <body>
 <div class="header-wrap">
@@ -13,14 +23,14 @@
                 <ul id="main-menu">
                     <li><a href="./index.html">HOME</a></li>
                     <li><a href="./sub1.html">COMPANY</a>
-                        <ul id="sub-menu">
-                            <li><a href="./sub1.html">기업소개</a></li>
-                            <li><a href="./sub1.html">기업 연혁</a></li>
-                            <li><a href="./sub1.html">오시는 길</a></li>
-                        </ul>
+                        <!--<ul id="sub-menu">
+                            <li><a href="./sub1.html#intro">기업 소개</a></li>
+                            <li><a href="./sub1.html#history">기업 연혁</a></li>
+                            <li><a href="./sub1.html#location">오시는 길</a></li>
+                        </ul>-->
                     </li>
                     <li><a href="./sub2.html">PRODUCTS</a>
-                        <ul id="sub-menu">
+                        <!--<ul id="sub-menu">
                             <li>
                                 <a href="./sub2-2.html">Heidolph<img src="./img/arrow-right-gray.png" alt="바로가기"></a>
                                 <ul id="sub-in-menu">
@@ -36,7 +46,7 @@
                                 <ul id="sub-in-menu">
                                     <li><a href="./sub2-3-1.html">Lab Fast Pro</a></li>
                                     <li><a href="./sub2-3-2.html">Pilot Compact</a></li>
-                                    <li><a href="./sub2-3-3.html">Reaction System</a></li>
+                                    <li><a href="./sub2-3-3.html">Process Reaction System</a></li>
                                     
                                 </ul>
                             </li>
@@ -50,7 +60,7 @@
                                     <li><a href="./sub2-4-5.html">Glass Reaction System</a></li>
                                 </ul>
                             </li>
-                        </ul>
+                        </ul>-->
                     </li>
                     <li><a href="./sub3.html">CONTACT US</a></li>
                     <li><a href="./sub4.html">DOWNLOADS</a></li>
@@ -61,3 +71,5 @@
 </div>
 </body>
 </html>
+
+
