@@ -40,6 +40,27 @@
                  
         });
   </script>
+      <script src=" https://smtpjs.com/v3/smtp.js"></script>
+      <script>
+          $(function(){
+          $('.tabcontent > div').hide();
+          $('.tabnav a').click(function () {
+              $('.tabcontent > div').hide().filter(this.hash).fadeIn();
+              $('.tabnav a').removeClass('active');
+              $(this).addClass('active');
+              return false;
+          }).filter(':eq(0)').click();
+          });
+          $(function(){
+          $('.tabcontent-sub > div').hide();
+          $('.tabnav-sub a').click(function () {
+              $('.tabcontent-sub > div').hide().filter(this.hash).fadeIn();
+              $('.tabnav-sub a').removeClass('active');
+              $(this).addClass('active');
+              return false;
+          }).filter(':eq(0)').click();
+          });
+      </script>
 </head>
 <body>
     <div id="wrap">
@@ -916,26 +937,6 @@
             </div>
         </footer>
     </div>
-    <script src=" https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-        $(function(){
-        $('.tabcontent > div').hide();
-        $('.tabnav a').click(function () {
-            $('.tabcontent > div').hide().filter(this.hash).fadeIn();
-            $('.tabnav a').removeClass('active');
-            $(this).addClass('active');
-            return false;
-        }).filter(':eq(0)').click();
-        });
-        $(function(){
-        $('.tabcontent-sub > div').hide();
-        $('.tabnav-sub a').click(function () {
-            $('.tabcontent-sub > div').hide().filter(this.hash).fadeIn();
-            $('.tabnav-sub a').removeClass('active');
-            $(this).addClass('active');
-            return false;
-        }).filter(':eq(0)').click();
-        });
-    </script>
+
 </body>
 </html>
