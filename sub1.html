@@ -34,39 +34,46 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function(){          
-            <!--$("#tab03").load("test.html #testlink");-->
-            $("#header-wrap-load").load("header-wrap.html .header-wrap", function() {
-                console.log("Content loaded successfully.");
-            });
-            $("#footer-wrap-load").load("footer-wrap.html .footer-wrap", function() {
-                console.log("Content loaded successfully.");
-            });
-                 
+            $(document).ready(function(){          
+        $("#header-wrap-load").load("header-wrap.html .header-wrap", function() {
+            console.log("Content loaded successfully.");
         });
+        $("#footer-wrap-load").load("footer-wrap.html .footer-wrap", function() {
+            console.log("Content loaded successfully.");
+        });
+               // 탭 네비게이션
+            function showTab(tabId) {
+            $('.tabcontent_sub').hide(); // 모든 탭 콘텐츠 숨기기
+            $(tabId).show(); // 선택된 탭 콘텐츠 보이기
+            $('.tabnav li').removeClass('active'); // 모든 탭 네비게이션에서 active 클래스 제거
+            $('.tabnav li a[href="' + tabId + '"]').parent().addClass('active'); // 선택된 탭 네비게이션에 active 클래스 추가
+        }
+
+        // 페이지 로드 시 해시 값이 있는 경우 해당 탭 표시
+        if(window.location.hash) {
+            showTab(window.location.hash);
+        } else {
+            showTab('#intro'); // 기본적으로 첫 번째 탭 표시
+        }
+
+        // 탭 네비게이션 클릭 이벤트
+        $('.tabnav li a').click(function(event) {
+            event.preventDefault();
+            var tabId = $(this).attr('href');
+            showTab(tabId);
+        });
+
+        // 해시 변경 시 이벤트 처리
+        $(window).on('hashchange', function() {
+            showTab(window.location.hash);
+        });
+        
+
+    });
   </script>
+
       <script src=" https://smtpjs.com/v3/smtp.js"></script>
-      <script>
-          $(function(){
-          $('.tabcontent > div').hide();
-          $('.tabnav a').click(function () {
-              $('.tabcontent > div').hide().filter(this.hash).fadeIn();
-              $('.tabnav a').removeClass('active');
-              $(this).addClass('active');
-              return false;
-          }).filter(':eq(0)').click();
-          });
-          $(function(){
-          $('.tabcontent-sub > div').hide();
-          $('.tabnav-sub a').click(function () {
-              $('.tabcontent-sub > div').hide().filter(this.hash).fadeIn();
-              $('.tabnav-sub a').removeClass('active');
-              $(this).addClass('active');
-              return false;
-          }).filter(':eq(0)').click();
-          });
-      </script>
-       
+
 </head>
 <body>
     <div id="wrap">
@@ -97,7 +104,7 @@
                                     <a class="introduce2"><strong>(주) 뉴 켐 김 천 만 대표</strong></a></div>
                                 <div class= "tabcontent_sub"  id="history"><a>기업 연혁을 기재하는 곳 입니다.</a></div>
                                 <div class= "tabcontent_sub"  id="location"><div>
-                                    <a href="./sub1-3.html">
+                                    <a href="./sub1.html">
                                         <p>※ 주소 :  <strong>경기사무소</strong> (18021) 경기 평택시 도시지원로 121 고덕지식공작소아이타워 510호<br><br></p>
                                     </a>
                                 </div>
