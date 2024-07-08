@@ -49,18 +49,20 @@
               console.log("function call");
   
               Email.send({
-                  Host : "smtp.elasticemail.com",
-                  Username : "wwf577@naver.com", //이메일을 변경한다면, 수정해야하는 부분
-                  Password : "audqkr34!", //이메일을 변경한다면, 수정해야하는 부분
-                  To : 'wwf577@naver.com', //이메일을 변경한다면, 수정해야하는 부분
-                  From : "wwf577@naver.com", //이메일을 변경한다면, 수정해야하는 부분
+                  Host : "smtp.elasticemail.com",                  
+                  Username : 'jinwoo.choi@aichemist.kr', //이메일을 변경한다면, 수정해야하는 부분
+                  Password : "EF2C85F944605B2CF9C5F9FEB4B24B30D1CE", //이메일을 변경한다면, 수정해야하는 부분
+                  To : document.getElementById("email").value,
+                  From : 'jinwoo.choi@aichemist.kr', //이메일을 변경한다면, 수정해야하는 부분//이메일을 변경한다면, 수정해야하는 부분
                   Subject : "NewChem 상담 신청",
-                  Body : "업체명: " + document.getElementById("company").value + "<br> 성명: " + document.getElementById("name").value + "<br> 전화번호: " + document.getElementById("number").value + "<br> 이메일: " + document.getElementById("email").value + "<br> 지역: " + document.getElementById("address").value + "<br> 제목: " + document.getElementById("title").value + "<br> 내용: " + document.getElementById("note").value
+                  Body : "업체명: " + document.getElementById("company").value + "<br> 성명: " + document.getElementById("name").value + "<br> 전화번호: " + document.getElementById("number").value + "<br> 이메일: " + document.getElementById("email").value +  "<br> 제목: " + document.getElementById("title").value + "<br> 내용: " + document.getElementById("note").value
               }).then(
               message => alert(message)
               );
           }
           function checkIt() {
+            console.log("function call2");
+            console.log(document.getElementById("email").value);
               const check_elem = document.querySelector("#check");
               if (!check_elem.checked) {
               alert("개인정보 수집 및 이용목적 동의 여부를 확인해주세요.");
@@ -111,7 +113,7 @@
                                     <tr>
                                         <td class="title">지역</td>
                                         <td colspan=3>
-                                            <select name=job  id="address">
+                                            <select name=address  id="address">
                                                 <option>서울특별시</option>
                                                 <option>경기도</option>
                                                 <option>인천광역시</option>
