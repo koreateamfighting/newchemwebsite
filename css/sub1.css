@@ -19,5 +19,8 @@ section{margin: 0;width: auto;height: 1300px;padding-top: 85px;}
 .tabnav>li>a{position:relative;display:block;color: #666;padding:0 30px;line-height:46px;text-decoration:none;font-size:16px;}
 .tabnav>li>a:hover,.tabnav>li>a.active{background:#fff;color:#e22636;transition: 0.1s;font-size: 18px;}
 .tabcontent{padding: 20px;height:244px;border-top:none;}
-.introduce1{color: #000000; text-align: right;}
-.introduce2{color: #180872; text-align: end;}
+.introduce1{color: #000000; text-align: center;display: flex;font-size: 24px;justify-content: center;}
+.introduce2{color: #000000; text-align: center;display: flex;justify-content: center;}
+.introduce3{color: #180872; text-align: right;}
+.location_comment{color: #000000; justify-content: center;display: flex;font-size: 24px;}
+.map{display: flex;justify-content: center;}
