@@ -18,7 +18,12 @@ section{margin: 0;width: auto;height: 3250px;padding-top: 85px;}
 .main-sub>.sub>ul{width: 900px;height: 50px;}
 .main-sub>.sub>ul>li{width: 250px;height: 40px;border-radius: 50px;background-color: #333;float: left;text-align: center;margin-right: 75px;}
 .main-sub>.sub>ul>li:last-child{margin-right: 0px;}
-.main-sub>.sub>ul>li>a{}
+.bold-white-text {
+    color: white;
+    font-weight: 500; /* Pretendard w500 적용 */
+    font-family: 'Pretendard', sans-serif;
+}
+
 .main-sub>.sub>ul>li>a>p{font-size: 18px;padding-top: 10px;}
 
 /* 대표 제품 */

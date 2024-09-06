@@ -33,62 +33,80 @@
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script>
-        $(document).ready(function(){                      
+        $(document).ready(function() {
+            // 헤더 로드
             $("#header-wrap-load").load("header-wrap.html .header-wrap", function() {
                 console.log("Content loaded successfully.");
             });
-            let hash = location.hash || "#tab03-load";  // 기본값으로 첫 번째 탭 설정
 
-    $('.tabcontent > div').hide().filter(hash).fadeIn();  // 해당 해시 탭 보여주기
-    $('.tabnav a').removeClass('active');
-    $('a[href="' + hash + '"]').addClass('active');
+            setTimeout(function(){
+        scrollToSectionWrap();
+    }, 1);
+            // 기본 탭 설정
+            let hash = location.hash || "#tab01-load";
+            updateTab(hash);
 
-    // 클릭 이벤트로 탭을 이동시킬 때도 해시 값 업데이트
-    $('.tabnav a').click(function(e) {
-        e.preventDefault();
-        $('.tabcontent > div').hide().filter(this.hash).fadeIn();
-        $('.tabnav a').removeClass('active');
-        $(this).addClass('active');
-        history.pushState(null, null, this.hash);
-    });
+            // 탭 클릭 시 탭 업데이트 및 해시 변경
+            $('.tabnav a').click(function(e) {
+                e.preventDefault();
+                let targetHash = this.hash;
+                updateTab(targetHash);
+                history.pushState(null, null, targetHash);
+                scrollToSectionWrap();
+            });
 
-    // 브라우저 뒤로가기 버튼 사용 시에도 탭 이동 적용
-    $(window).on('popstate', function() {
-        let hash = location.hash || "#tab01-load";
-        $('.tabcontent > div').hide().filter(hash).fadeIn();
-        $('.tabnav a').removeClass('active');
-        $('a[href="' + hash + '"]').addClass('active');
-    });
+            // 뒤로가기/앞으로가기 시 탭 처리
+            $(window).on('popstate', function() {
+                let hash = location.hash || "#tab01-load";
+                updateTab(hash);
+                scrollToSectionWrap();
+            });
 
+            // 탭 전환 함수
+            function updateTab(hash) {
+                $('.tabcontent > div').hide().filter(hash).fadeIn();
+                $('.tabnav a').removeClass('active');
+                $('a[href="' + hash + '"]').addClass('active');
+                window.scrollTo(0, 0); // 탭 변경 시 스크롤을 맨 위로 이동
+            }
 
-      
-                 
+            // 하위 탭 처리
+            $('.tabnav-sub a').click(function(e) {
+                e.preventDefault();
+                let targetHash = this.hash;
+                $('.tabcontent-sub > div').hide().filter(targetHash).fadeIn();
+                $('.tabnav-sub a').removeClass('active');
+                $(this).addClass('active');
+            }).filter(':eq(0)').click(); // 첫 번째 하위 탭 활성화
+
+                // section-wrap으로 스크롤 이동 함수
+    function scrollToSectionWrap() {
+        const sectionWrapOffset = $('.section-wrap').offset().top;
+        window.scrollTo({
+            top: sectionWrapOffset, 
+            behavior: 'smooth' // 부드럽게 이동
         });
+    }
 
+    // 하위 탭 처리
+$('.tabnav-sub a').click(function(e) {
+    e.preventDefault();
+    
+    // 모든 a 태그에서 active 클래스를 제거
+    $('.tabnav-sub a').removeClass('active');
+    
+    // 클릭된 a 태그에 active 클래스를 추가
+    $(this).addClass('active');
 
+    let targetHash = this.hash;
+    $('.tabcontent-sub > div').hide().filter(targetHash).fadeIn();
+}).filter(':eq(0)').click(); // 첫 번째 하위 탭 활성화
 
-  </script>
-      <script src=" https://smtpjs.com/v3/smtp.js"></script>
-      <script>
-          $(function(){
-          $('.tabcontent > div').hide();
-          $('.tabnav a').click(function () {
-              $('.tabcontent > div').hide().filter(this.hash).fadeIn();
-              $('.tabnav a').removeClass('active');
-              $(this).addClass('active');
-              return false;
-          }).filter(':eq(0)').click();
-          });
-          $(function(){
-          $('.tabcontent-sub > div').hide();
-          $('.tabnav-sub a').click(function () {
-              $('.tabcontent-sub > div').hide().filter(this.hash).fadeIn();
-              $('.tabnav-sub a').removeClass('active');
-              $(this).addClass('active');
-              return false;
-          }).filter(':eq(0)').click();
-          });
-      </script>
+        });
+    </script>
+
+    <!-- SMTPJS 스크립트 링크 공백 제거 -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
 <body>
     <div id="wrap">
@@ -107,22 +125,20 @@
                             <ul class="tabnav">
                                 <li id="tab-one"><a href="/sub2.html#tab01-load">Heidolph</a></li>
                                 <li id="tab-two"><a href="/sub2.html#tab02-load">NORMAG</a></li>
-                                <li id="tab-three"><a href="/sub2.html#tab03-load">Flow Chemistry</a></li>
+                                <li id="tab-three"><a href="/sub2.html#tab03-load">CINC Industry</a></li>
                             </ul>
                             <div class="tabcontent">
                                 <div id="tab01-load">
                                     <div class="tab-sub">
                                         <ul class="tabnav-sub">
-                                            <li><a href="#tab01-sub">Rotary Evaporator <br>(회전증발농축기)</a></li>
-                                            <li><a href="#tab02-sub">Stirring(교반기)　　	
-                                            </a></li>
-                                            <li><a href="#tab03-sub">Automation<br>(자동화 모듈)	
-                                            </a></li>
-                                            <li><a href="#tab04-sub">Voltex & Shaking	
-                                            </a></li>
-                                            <li><a href="#tab05-sub">Liquid Handling	
-                                            </a></li>
+                                            <li><a href="#tab01-sub">Rotary Evaporator<br>(회전증발농축기)</a></li>
+                                            <li><a href="#tab02-sub">Stirring<br>(교반기)</a></li>
+                                            <li><a href="#tab03-sub">Automation<br>(자동화 모듈)</a></li>
+                                            <li><a href="#tab04-sub">Voltex & Shaking</a></li>
+                                            <li><a href="#tab05-sub">Liquid Handling</a></li>
                                         </ul>
+                                        
+                                        
                                         <div class="tabcontent-sub"> <!-- 제품이 더 추가될 수 있음 -->
                                             <div id="tab01-sub">
                                                 <div class="cont01-img">

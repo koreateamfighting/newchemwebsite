@@ -6,6 +6,245 @@
     <title>New Chem</title>
     <link rel="stylesheet" type="text/css" href="css/common.css"> <!-- 전체 공통 css -->
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <meta name="description" content="text, text, text, text"> <!-- 검색어 등 대표단어 뉴켐에 물어보고 text에 작성해주세요 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="New-Chem">
+    <meta property="og:description" content="text, text, text, text"> <!-- 검색어 등 대표단어 뉴켐에 물어보고 text에 작성해주세요 -->
+    <meta property="og:image" content="https://kcskcsa.com/default/img/logo.gif"> <!-- 사이트 주소로 바꿔야함 -->
+    <meta property="og:url" content="https://www.kcskcsa.co.kr/"> <!-- 사이트 주소로 바꿔야함 -->
+    <link rel="apple-touch-icon" sizes="57x57" href="./favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // header와 footer를 로드하는 기존 코드
+            $("#header-wrap-load").load("header-wrap.html .header-wrap");
+            $("#footer-wrap-load").load("footer-wrap.html .footer-wrap");
+    
+            // sub4.html에서 다운로드 자료를 가져오는 코드
+            $.get("sub4.html", function(data) {
+                // sub4.html에서 tbody의 tr들을 가져와서 처리
+                var $tableRows = $(data).find("tbody tr");
+                var $downloadList = $(".download"); // index.html의 ul.download 선택
+                
+                // tr에서 a 태그의 링크와 텍스트를 추출하여 li로 변환해 ul에 추가
+                $tableRows.each(function() {
+                    var link = $(this).find("a").attr("href");
+                    var title = $(this).find("a").text();
+                    
+                    // 새로운 li 요소를 생성하여 ul에 추가
+                    $downloadList.append('<li><a href="' + link + '"><p>' + title + '</p></a></li>');
+                });
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div id="header-wrap-load"></div>
+        </header>
+        <section>
+            <div class="section-wrap">
+                <div class="main">
+                    <div class="main-box">
+                        <div class="main-text">
+                            <!-- 대표 브랜드 로고를 넣는 부분 <div class="logo"><img src="" alt=""></div> -->
+                            <div class="text">
+                                <p class="title">제목 또는 상품 상세에 대한 타이틀</p>
+                                <p>간단한 한 줄 소개</p>
+                            </div>
+                        </div>
+                        <div class="main-sub">
+                            <div class="sub">
+                                <ul>
+                                    <li>
+                                        <a href="/sub2.html#tab01-load">
+                                            <img src="./img/heidolph_logo.png" alt="Heidolph" style="width: 250px; height: 40px; border-radius: 10px;">
+                                            <p class="bold-white-text">Heidolph</p>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="/sub2.html#tab02-load">
+                                            <img src="./img/normag_logo.png" alt="Normag" style="width: 250px; height: 40px; border-radius: 10px;">
+                                            <p class="bold-white-text">NORMAG</p>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="/sub2.html#tab03-load">
+                                            <img src="./img/CINCIndustry.png" alt="CINC_Industry" style="width: 250px; height: 40px; border-radius: 10px;">
+                                            <p class="bold-white-text">CINC_Industry</p>
+                                        </a>
+                                    </li>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-wrap">
+                    <div class="cont01">
+                        <div class="cont01-text">
+                            <div class="text-box">
+                                <p class="point">PRODUCT</p>
+                                <p>대표 제품</p>
+                            </div>
+                        </div>
+                        <div class="cont01-img">  <!-- 메인에 보여질 제품 이미지 및 설명한줄 -->
+                            <ul>
+                                <li>
+                                    <a href=""> 
+                                        <ul>
+                                            <li><img src="./img/product01.png" alt=""></li>
+                                            <li><p class="title">제품이름</p></li>
+                                            <li><p>제품에 대한 부가내용</p></li>
+                                        </ul>
+                                    </a> 
+                                </li>
+                                <li>
+                                    <a href=""> 
+                                        <ul>
+                                            <li><img src="./img/product01.png" alt=""></li>
+                                            <li><p class="title">제품이름</p></li>
+                                            <li><p>제품에 대한 부가내용</p></li>
+                                        </ul>
+                                    </a> 
+                                </li>
+                                <li>
+                                    <a href=""> 
+                                        <ul>
+                                            <li><img src="./img/product01.png" alt=""></li>
+                                            <li><p class="title">제품이름</p></li>
+                                            <li><p>제품에 대한 부가내용</p></li>
+                                        </ul>
+                                    </a> 
+                                </li>
+                                <li>
+                                    <a href=""> 
+                                        <ul>
+                                            <li><img src="./img/product01.png" alt=""></li>
+                                            <li><p class="title">제품이름</p></li>
+                                            <li><p>제품에 대한 부가내용</p></li>
+                                        </ul>
+                                    </a> 
+                                </li>
+                                <li>
+                                    <a href=""> 
+                                        <ul>
+                                            <li><img src="./img/product01.png" alt=""></li>
+                                            <li><p class="title">제품이름</p></li>
+                                            <li><p>제품에 대한 부가내용</p></li>
+                                        </ul>
+                                    </a> 
+                                </li>
+                                <li>
+                                    <a href=""> 
+                                        <ul>
+                                            <li><img src="./img/product01.png" alt=""></li>
+                                            <li><p class="title">제품이름</p></li>
+                                            <li><p>제품에 대한 부가내용</p></li>
+                                        </ul>
+                                    </a> 
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cont02">
+                        <div class="cont02-box"> <!-- 기업 소개 파트, 이미지와 소개 내용은 뉴켐에서 수급받기 -->
+                            <div class="company">
+                                <p><img src="./img/logo-white-left.png" alt="NewChem"></p>
+                                <p class="border">안녕하세요, (주)뉴켐을 소개합니다.</p>
+                                <div class="text">
+                                    <p>뉴켐은 실험실에서 사용하는 기초장비부터 반응 및 자동화 시스템까지,
+                                        </p>
+                                        <p> 합성 실험에 필요한 모든 솔루션을 제공하는 회사입니다.</p>
+                                    <p>지난 20년간 화학 및 의약 연구 분야에 수 많은 제품 및 시스템을 </p>
+                                         <p>공급한 경험과 지식을 바탕으로,</p>
+                                            <p>고객이 신뢰할 수 있는 회사가 되도록 노력하겠습니다.</p>
+                                    <p>감사합니다.</p>
+                                    
+                                </div>
+                            </div>
+                            <div class="company-img">
+                                <img src="./img/movie_example.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cont03">
+                        <div class="cont03-box"> <!-- cont3 에서는 다운로드 부분만 수정 하면 됨 -->
+                            <ul>
+                                <li>
+                                    <div>
+                                        <a href="./sub4.html"><p>Download</p><img src="./img/arrow-right.png" alt="다운로드 바로가기"></a>
+                                    </div>
+                                    <ul class="download">
+                               
+                                        
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div>
+                                        <a href="./sub3.html"><p>Contact Us</p><img src="./img/arrow-right.png" alt="다운로드 바로가기"></a>
+                                    </div>
+                                    <ul class="contact">
+                                        <li>전문가에게 맡겨주세요!</li>
+                                        <li>문의 및 상담 내용을 작성해서 접수하시면,<br>전문가들이 24시간 이내로 빠르고 성실하게<br>답변 드리겠습니다.</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div>
+                                        <a href="sub1.html#location"><p>오시는 길</p><img src="./img/arrow-right.png" alt="다운로드 바로가기"></a>
+                                    </div>
+                                    <ul class="location-sub">
+                                        <li><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.6223690480622!2d127.01586977089258!3d37.02699966322705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b3d001631c641%3A0x2cd353d15ed8488b!2z6rOg642V7KeA7Iud6rO17J6R7IaM7JWE7J207YOA7JuMIOyngOyLneyCsOyXheyEvO2EsA!5e0!3m2!1sko!2skr!4v1717727526433!5m2!1sko!2skr" width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>            
+            <div id="footer-wrap-load"></div>
+        </footer>
+    </div>
+</body>
+</html><!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Chem</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css"> <!-- 전체 공통 css -->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <meta name="description" content="text, text, text, text"> <!-- 검색어 등 대표단어 뉴켐에 물어보고 text에 작성해주세요 -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="New-Chem">
@@ -79,7 +318,7 @@
 </li>
 <li>
     <a href="/sub2.html#tab03-load">
-        <img src="./img/CINCIndustry.png" alt="Flow Chemistry" style="width: 250px; height: 40px; border-radius: 10px;">
+        <img src="./img/CINCIndustry.png" alt="CINC_Industry" style="width: 250px; height: 40px; border-radius: 10px;">
         <p>CINC_Industry</p>
     </a>
 </li>
