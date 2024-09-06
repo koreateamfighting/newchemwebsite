@@ -32,13 +32,40 @@
     <meta name="theme-color" content="#ffffff">
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript">
+    <script>
         $(document).ready(function(){                      
             $("#header-wrap-load").load("header-wrap.html .header-wrap", function() {
                 console.log("Content loaded successfully.");
             });
+            $('.tabnav a').click(function (e) {
+            e.preventDefault();
+            
+            // 탭 콘텐츠를 숨기고 클릭한 탭의 콘텐츠만 보여줌
+            $('.tabcontent > div').hide().filter(this.hash).fadeIn();
+            $('.tabnav a').removeClass('active');
+            $(this).addClass('active');
+
+            // URL 변경 (pushState를 이용하여 브라우저 주소 변경)
+            let newUrl = $(this).attr('href');
+            history.pushState(null, null, newUrl); 
+
+            return false;
+        }).filter(':eq(0)').click();  // 첫 번째 탭을 기본 활성화 탭으로 설정
+
+        // 브라우저의 뒤로가기/앞으로가기 버튼을 사용할 때 탭 콘텐츠도 변경되도록 함
+        $(window).on('popstate', function() {
+            let hash = location.hash || "#tab01-load";
+            $('.tabcontent > div').hide().filter(hash).fadeIn();
+            $('.tabnav a').removeClass('active');
+            $('a[href="' + hash + '"]').addClass('active');
+        });
+
+      
                  
         });
+
+
+
   </script>
       <script src=" https://smtpjs.com/v3/smtp.js"></script>
       <script>
@@ -77,9 +104,9 @@
                     <div class="product-tab">
                         <div class="tab">
                             <ul class="tabnav">
-                                <li id="#tab-one"><a href="#tab01-load">Heidolph</a></li>
-                                <li id="#tab-two"><a href="#tab02-load">NORMAG</a></li>
-                                <li id="#tab-three"><a href="#tab03-load">Flow Chemistry</a></li>
+                                <li id="tab-one"><a href="/sub2.html#tab01-load">Heidolph</a></li>
+                                <li id="tab-two"><a href="/sub2.html#tab02-load">NORMAG</a></li>
+                                <li id="tab-three"><a href="/sub2.html#tab03-load">Flow Chemistry</a></li>
                             </ul>
                             <div class="tabcontent">
                                 <div id="tab01-load">
