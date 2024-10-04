@@ -52,15 +52,17 @@
 
     // 제품 설명 팝업을 위한 showPopup 및 hidePopup 함수
     function showPopup(title, content) {
-        var popup = $('#popup');
-        $('#popup-title').text(title);
-        $('#popup-content').text(content);
-        popup.css('display', 'block');  // 팝업을 표시
-    }
+    console.log("showPopup 호출됨"); // 함수 호출 확인용
+    var popup = $('#popup');
+    $('#popup-title').text(title);
+    $('#popup-content').text(content);
+    popup.css('display', 'block');  // 팝업을 표시
+}
 
-    function hidePopup() {
-        $('#popup').css('display', 'none');  // 팝업을 숨김
-    }
+function hidePopup() {
+    console.log("hidePopup 호출됨"); // 함수 호출 확인용
+    $('#popup').css('display', 'none');  // 팝업을 숨김
+}
 
     // 이벤트 바인딩 (jQuery 방식으로 onmouseover 처리)
     $('.cont01-img ul li').on('mouseover', function() {
