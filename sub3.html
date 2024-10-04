@@ -42,18 +42,18 @@
             });
                  
         });
-  </script>
+    </script>
       <script src=" https://smtpjs.com/v3/smtp.js"></script> <!-- 이메일주소로 문의 보내기 스크립트 작동됨-->
       <script>
           function Send(){
               console.log("function call");
   
               Email.send({
-                Host : "smtp.elasticemail.com",                  
-                  Username : 'jinwoo.choi@aichemist.kr', //이메일을 변경한다면, 수정해야하는 부분
-                  Password : "EF2C85F944605B2CF9C5F9FEB4B24B30D1CE", //이메일을 변경한다면, 수정해야하는 부분
-                  To : document.getElementById("email").value,
-                  From : 'jinwoo.choi@aichemist.kr', //이메일을 변경한다면, 수정해야하는 부분//이메일을 변경한다면, 수정해야하는 부분
+                Host : "smtp.elasticemail.com",
+                Username : "jinwoo.choi@aichemist.kr", //이메일을 변경한다면, 수정해야하는 부분
+                Password : "96F1DDDFA0197A38B2C30C7C61B303E22D02", //이메일을 변경한다면, 수정해야하는 부분
+                To : 'jinwoo.choi@aichemist.kr', //이메일을 변경한다면, 수정해야하는 부분
+                From : "jinwoo.choi@aichemist.kr", //이메일을 변경한다면, 수정해야하는 부분
                 Subject : "NewChem 상담 신청",
                 Body : "업체명: " + document.getElementById("company").value + "<br> 성명: " + document.getElementById("name").value + "<br> 전화번호: " + document.getElementById("number").value + "<br> 이메일: " + document.getElementById("email").value + "<br> 지역: " + document.getElementById("address").value + "<br> 제목: " + document.getElementById("title").value + "<br> 내용: " + document.getElementById("note").value
             }).then(
