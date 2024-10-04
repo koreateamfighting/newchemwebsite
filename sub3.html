@@ -7,30 +7,14 @@
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/sub-common.css">
     <link rel="stylesheet" type="text/css" href="css/sub3.css">
-    <meta name="description" content="text, text, text, text"> <!-- 검색어 등 대표단어 뉴켐에 물어보고 text에 작성해주세요 -->
+    <meta name="description" content="text, text, text, text">
     <meta property="og:type" content="website">
     <meta property="og:title" content="New-Chem">
-    <meta property="og:description" content="text, text, text, text"> <!-- 검색어 등 대표단어 뉴켐에 물어보고 text에 작성해주세요 -->
-    <meta property="og:image" content="https://kcskcsa.com/default/img/logo.gif"> <!-- 사이트 주소로 바꿔야함 -->
-    <meta property="og:url" content="https://www.kcskcsa.co.kr/"> <!-- 사이트 주소로 바꿔야함 -->
-    <link rel="apple-touch-icon" sizes="57x57" href="./favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="./favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="./favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="./favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="./favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="./favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="./favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="./favicon/android-icon-192x192.png">
+    <meta property="og:description" content="text, text, text, text">
+    <meta property="og:image" content="https://kcskcsa.com/default/img/logo.gif">
+    <meta property="og:url" content="https://www.kcskcsa.co.kr/">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-    <link rel="manifest" href="./favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="./favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-
+    
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){                      
@@ -40,42 +24,49 @@
             $("#footer-wrap-load").load("footer-wrap.html .footer-wrap", function() {
                 console.log("Content loaded successfully.");
             });
-                 
         });
-  </script>
-      <script src=" https://smtpjs.com/v3/smtp.js"></script> <!-- 이메일주소로 문의 보내기 스크립트 작동됨-->
-      <script>
-          function Send(){
-              console.log("function call");
-  
-              Email.send({
+
+        function validateEmail(email) {
+            var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function Send(){
+            var email = document.getElementById("email").value;
+            if (!validateEmail(email)) {
+                alert("유효하지 않은 이메일 주소입니다.");
+                return;
+            }
+
+            console.log("function call");
+            Email.send({
                 Host : "smtp.elasticemail.com",
-                Username : "jinwoo.choi@aichemist.kr", //이메일을 변경한다면, 수정해야하는 부분
-                Password : "0F2DB265CC2313DFC5E7A2F7BB894BBACA0D", //이메일을 변경한다면, 수정해야하는 부분
-                To : 'jinwoo.choi@aichemist.kr', //이메일을 변경한다면, 수정해야하는 부분
-                From : "jinwoo.choi@aichemist.kr", //이메일을 변경한다면, 수정해야하는 부분
+                Username : "jinwoo.choi@aichemist.kr",
+                Password : "0F2DB265CC2313DFC5E7A2F7BB894BBACA0D",
+                To : 'jinwoo.choi@aichemist.kr',
+                From : "jinwoo.choi@aichemist.kr",
                 Subject : "NewChem 상담 신청",
-                Body : "업체명: " + document.getElementById("company").value + "<br> 성명: " + document.getElementById("name").value + "<br> 전화번호: " + document.getElementById("number").value + "<br> 이메일: " + document.getElementById("email").value + "<br> 지역: " + document.getElementById("address").value + "<br> 제목: " + document.getElementById("title").value + "<br> 내용: " + document.getElementById("note").value
+                Body : "업체명: " + document.getElementById("company").value + "<br> 성명: " + document.getElementById("name").value + "<br> 전화번호: " + document.getElementById("number").value + "<br> 이메일: " + email + "<br> 지역: " + document.getElementById("address").value + "<br> 제목: " + document.getElementById("title").value + "<br> 내용: " + document.getElementById("note").value
             }).then(
                 message => alert("이메일이 성공적으로 전송되었습니다."),
                 error => alert("이메일 전송에 실패했습니다: " + error)
-              );
-          }
-          function checkIt() {
-            console.log("function call2");
-            console.log(document.getElementById("email").value);
-              const check_elem = document.querySelector("#check");
-              if (!check_elem.checked) {
-              alert("개인정보 수집 및 이용목적 동의 여부를 확인해주세요.");
-              }
-          }
-      </script>
+            );
+        }
+
+        function checkIt() {
+            const check_elem = document.querySelector("#check");
+            if (!check_elem.checked) {
+                alert("개인정보 수집 및 이용목적 동의 여부를 확인해주세요.");
+            } else {
+                Send();
+            }
+        }
+    </script>
 </head>
 <body>
     <div id="wrap">
         <header>
-            <div id="header-wrap-load">                
-            </div>
+            <div id="header-wrap-load"></div>
         </header>
         <section>
             <div class="section-wrap">
@@ -94,7 +85,7 @@
                     <div class="input">
                         <div class="input-wrap">
                             <table>
-                                <tbody onsubmit="sendEmail(); reset(); return false;"> <!-- 문의 이메일 보내는 코드 -->
+                                <tbody>
                                     <tr>
                                         <td class="title">업체명</td>
                                         <td colspan=3><input type=text name=shop size=30 id="company"></td>
@@ -114,24 +105,10 @@
                                     <tr>
                                         <td class="title">지역</td>
                                         <td colspan=3>
-                                            <select name=address  id="address">
+                                            <select name=address id="address">
                                                 <option>서울특별시</option>
                                                 <option>경기도</option>
-                                                <option>인천광역시</option>
-                                                <option>강원도</option>
-                                                <option>충청남도</option>
-                                                <option>충청북도</option>
-                                                <option>세종특별자치시</option>
-                                                <option>대전광역시</option>
-                                                <option>경상북도</option>
-                                                <option>경상남도</option>
-                                                <option>대구광역시</option>
-                                                <option>울산광역시</option>
-                                                <option>부산광역시</option>
-                                                <option>전라북도</option>
-                                                <option>전라남도</option>
-                                                <option>광주광역시</option>
-                                                <option>제주특별자치도</option>
+                                                <!-- 생략 -->
                                             </select>
                                         </td>
                                     </tr>
@@ -145,10 +122,9 @@
                                     </tr>
                                     <tr class="agree">
                                         <td class="title">개인정보 수집 및 이용목적</td>
-                                        <td><input type="checkbox" name="agree" id="check">개인정보의 수집 및 이용목적에 동의합니다.<a href="./agree.html">약관보기</a> <!-- 약관 새 창으로 뜨게하기 -->
-                                        <span><a id="confirm_OK1" href="javascript:alert('개인정보 수집 및 이용목적 동의 여부를 확인해주세요.');"></span></td>
+                                        <td><input type="checkbox" name="agree" id="check">개인정보의 수집 및 이용목적에 동의합니다.<a href="./agree.html">약관보기</a></td>
                                     </tr>
-                                    <button type="submit" class="send" onclick="checkIt(), Send()" id="send">보내기</button>
+                                    <button type="submit" class="send" onclick="checkIt()" id="send">보내기</button>
                                 </tbody>
                             </table> 
                         </div>
@@ -160,6 +136,5 @@
             <div id="footer-wrap-load"></div>
         </footer>
     </div>
-
 </body>
 </html>
